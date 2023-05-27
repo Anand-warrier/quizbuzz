@@ -11,9 +11,12 @@ function App() {
     <div className="App">
       
       <Routes>
+      <Route path="/hey" element={<Moderator/>}/>
+
         <Route path="/"  element={<Moderator/>}/> 
          <Route path="signup" element={<Moderator_signup />}/>
          <Route path="login_success" element={<Modequestion/>}/>
+        
       </Routes>
     </div>
   );

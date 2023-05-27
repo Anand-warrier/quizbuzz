@@ -3,6 +3,7 @@ import {  Box, Button, Icon, Typography ,Alert } from '@mui/material'
 import { TextField, IconButton, InputAdornment } from '@mui/material';
 import { FormatAlignJustify, Visibility, VisibilityOff } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+
 import Avatar from '@mui/material/Avatar';
 
 
@@ -58,7 +59,7 @@ const Moderator = () => {
       <div style={{textAlign:"left"}}>
         <label >
         <input
-          type="checkbox1"  
+          type="checkbox"  
         />
         Remember Me!
       </label>

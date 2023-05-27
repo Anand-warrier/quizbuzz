@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
-import { Tabs, Tab, Typography, Backdrop, Autocomplete, TextField, Button,Table, TableHead, TableRow, TableCell } from '@mui/material';
+import { Tabs, Tab, Typography, Backdrop, Autocomplete, TextField, Button,Table, TableHead, TableRow, TableCell,IconButton, Link } from '@mui/material';
 import { Box } from '@mui/system';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+// import { Link } from 'react-router-dom';
+
 const Modequestion = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [showBackdrop, setShowBackdrop] = useState(false);
+  const handleBackdropClose = () => {
+    setShowBackdrop(false);
+    setActiveTab(0);
+  };
+
   const handleTabChange = (event, newValue) => {
     setActiveTab(newValue);
-    if (newValue === 0) {
+    if (newValue === 1) {
       setShowBackdrop(true);
-    } else {
+    }
+    
+    
+    else {
       setShowBackdrop(false);
     }
   };
@@ -25,25 +36,59 @@ const Modequestion = () => {
   const handleNumQuestionsChange = (event) => {
     const count = parseInt(event.target.value);
     setNumQuestions(count);
-    setQuestions(Array(count).fill({ question: '', options: ['', '', '', ''] }));
+    setQuestions(Array(count).fill({ question: '', options: ['', '', '', ''] , correctOption: 1}));
   };
 
-  const handleQuestionChange = (event, index) => {
-    const updatedQuestions = [...questions];
-    updatedQuestions[index].question = event.target.value;
-    setQuestions(updatedQuestions);
+  const handleQuestionChange = (event, questionIndex) => {
+    const { value } = event.target;
+    setQuestions((prevQuestions) => {
+      const updatedQuestions = [...prevQuestions];
+      updatedQuestions[questionIndex] = {
+        ...updatedQuestions[questionIndex],
+        question: value,
+      };
+      return updatedQuestions;
+    });
   };
-
+  
   const handleOptionChange = (event, questionIndex, optionIndex) => {
-    const updatedQuestions = [...questions];
-    updatedQuestions[questionIndex].options[optionIndex] = event.target.value;
-    setQuestions(updatedQuestions);
+    const { value } = event.target;
+    setQuestions((prevQuestions) => {
+      const updatedQuestions = [...prevQuestions];
+      updatedQuestions[questionIndex] = {
+        ...updatedQuestions[questionIndex],
+        options: updatedQuestions[questionIndex].options.map((option, idx) =>
+          idx === optionIndex ? value : option
+        ),
+      };
+      return updatedQuestions;
+    });
+  };
+  
+
+  const handleCorrectOptionChange = (event, questionIndex) => {
+    const value = parseInt(event.target.value);
+    if (value >= 1 && value <= 4) {
+      const updatedQuestions = [...questions];
+      updatedQuestions[questionIndex] = {
+        ...updatedQuestions[questionIndex],
+        correctOption: value,
+      };
+      setQuestions(updatedQuestions);
+    }
   };
   const handleSubmit = () => {
-    
-    console.log('Form submitted');
+    const formattedQuestions = questions.map((questionObj) => {
+      return {
+        question: questionObj.question,
+        options: questionObj.options,
+        correctOption: questionObj.correctOption,
+        Tag:selectedTags
+      };
+    });
+    // Send the formattedQuestions to the database or perform other operations
+    console.log('Formatted Questions:', formattedQuestions);
   
-   
     setNumQuestions(0);
     setQuestions([]);
     setShowBackdrop(false);
@@ -51,27 +96,49 @@ const Modequestion = () => {
   };
 
   return (
-    <div>
-   
+    <div >
+       
       <Tabs
         value={activeTab}
         onChange={handleTabChange}
         indicatorColor="secondary"
         textColor="primary"
-        //variant="fullWidth"
-        sx={{ width: '1000px' }}
+       
+        variant='fullWidth'
       >
-        <Tab label="Assign questions" />
         <Tab label="Attendee details" />
+        <Tab label="Assign questions" />
+        <Tab
+        style={{ flex: '0 0 auto', minWidth: '80px' }}
+  label={
+    <Box sx={{ display: 'flex', alignItems: 'center',flexDirection:"Row" }}>
+      <Typography variant="body2" sx={{ marginRight: 1}}>
+        Sign Out
+      </Typography>
+      <Link to={"/hey"}>
+      <IconButton sx={{ mt: 2,  marginTop:0}}  >
+        <ExitToAppIcon />
+      </IconButton>
+      </Link>
+    </Box>
+  }
+/>
+        
+
+        
         
       </Tabs>
 
-          
+    
+      
 
-      <TabPanel value={activeTab} index={0}>
-        <h1>Generate questions here!</h1>
+      <TabPanel value={activeTab} index={1}>
+        
         <Backdrop open={showBackdrop}>
           <Box p={3} width={300} height={500} bgcolor="white" sx={{ overflowY: 'auto' }}>
+          <IconButton onClick={handleBackdropClose} style={{  right: 150, top: 0 }}>
+              <ArrowBackIcon />
+            </IconButton>
             <Typography style={{ fontFamily: 'cursive', fontSize: '25px', color: 'tan' }}>
               Type in quizes!
             </Typography>
@@ -125,6 +192,14 @@ const Modequestion = () => {
                     />
                   </div>
                 ))}
+                <br />
+                <TextField
+                  label="Correct Option"
+                  type="number"
+                  value={questionObj.correctOption}
+                  onChange={(event) => handleCorrectOptionChange(event, questionIndex)}
+                  sx={{ width: '100%' }}
+                />
               </div>
               
             ))}
@@ -134,7 +209,7 @@ const Modequestion = () => {
           </Box>
         </Backdrop>
       </TabPanel>
-      <TabPanel value={activeTab} index={1}>
+      <TabPanel value={activeTab} index={0}>
         <h2>Attendee details</h2>
         <Table>
           <TableHead>
@@ -148,6 +223,7 @@ const Modequestion = () => {
         </Table>
       </TabPanel>
      
+      
 
 
           
