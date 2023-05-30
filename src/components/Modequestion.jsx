@@ -4,8 +4,13 @@ import { Box } from '@mui/system';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 // import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 
 const Modequestion = () => {
+ 
+
+  
   const [activeTab, setActiveTab] = useState(0);
   const [showBackdrop, setShowBackdrop] = useState(false);
   const handleBackdropClose = () => {
@@ -216,7 +221,7 @@ const Modequestion = () => {
             <TableRow>
               <TableCell>  Name of participant </TableCell>
               <TableCell>  Email id </TableCell>
-              <TableCell>  Quiz tag </TableCell>
+              <TableCell>  Quiz type</TableCell>
               <TableCell>  Score </TableCell>
             </TableRow>
           </TableHead>

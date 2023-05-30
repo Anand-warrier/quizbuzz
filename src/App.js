@@ -1,8 +1,8 @@
 import './App.css';
-import Moderator from './Moderator';
+import Moderator from './components/Moderator';
 import { Route, Routes } from 'react-router-dom';
-import Moderator_signup from './Moderator_signup';
-import Modequestion from './Modequestion';
+import Moderator_signup from './components/Moderator_signup';
+import Modequestion from './components/Modequestion';
 function App() {
     
   
