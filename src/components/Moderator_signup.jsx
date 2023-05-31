@@ -12,9 +12,11 @@ const Moderator_signup = () => {
       setShowPassword((prevShowPassword) => !prevShowPassword);
     };
   return (
+    <div  style={{
+      background:'linear-gradient(to left,#3cc8b3, #8c6e50)', height: '100vh'}}>
     <div
          style={{
-       backgroundColor: "white",
+       backgroundColor: "transparent",
         backdropFilter: "blur(65px)",
         borderRadius: "30px 30px 30px 30px",
         boxShadow: "2px 2px 4px 2px rgba(0, 0, 0, 0.2)",
@@ -28,10 +30,12 @@ const Moderator_signup = () => {
         top:"50%",
         transform: "translate(-50%, -50%)",}}>
            <div style={{ display: 'flex',justifyContent:"center"}}>
-          <Avatar alt="In" src="D:\Quiz\quiz\src\login_logo.png" sx={{ width: 60, height: 60  }} />
+          <Avatar alt=""   sx={{ width: 60, height: 60  }} />
           </div>
            <Typography style={{fontFamily:"-moz-initial",fontSize:"30px",}}>Create new account</Typography>
-            
+           <br />
+           <TextField  label="Full name"  size="medium" style={{width:'100%'}}  ></TextField> 
+            <br />
            <br />
            <TextField  label="Username"  size="medium" style={{width:'100%'}}  ></TextField> 
            <br />
@@ -51,7 +55,8 @@ const Moderator_signup = () => {
       }}></TextField>
       <br />
       <br />
-      <Button color='success' variant='contained'  style={{width:"100%"}} ><Link  to ={'/'} style={{display: "inline-block"}} >Sign up</Link></Button>
+      <Button color='success' variant='contained'  style={{width:"100%"}} ><Link  to ={'/modsignup'} style={{display: "inline-block" , color: "white", textDecoration: "none" }} replace>Sign up</Link></Button>
+    </div>
     </div>
   )
 }

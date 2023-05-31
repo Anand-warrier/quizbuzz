@@ -3,7 +3,7 @@ import {  Box, Button, Icon, Typography ,Alert } from '@mui/material'
 import { TextField, IconButton, InputAdornment } from '@mui/material';
 import { FormatAlignJustify, Visibility, VisibilityOff } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import Avatar from '@mui/material/Avatar';
 
 
@@ -15,9 +15,11 @@ const Moderator = () => {
           setShowPassword((prevShowPassword) => !prevShowPassword);
         };
   return (
+    <div  style={{
+      background:'linear-gradient(to left,#3cc8b3, #8c6e50)', height: '100vh'}}>
     <div 
         style={{
-       backgroundColor: "white",
+        backgroundColor:"transparent",
         backdropFilter: "blur(65px)",
         borderRadius: "30px 30px 30px 30px",
         boxShadow: "2px 2px 4px 2px rgba(0, 0, 0, 0.2)",
@@ -30,6 +32,15 @@ const Moderator = () => {
         left: "50%",
         top:"50%",
         transform: "translate(-50%, -50%)",}}>
+          <Link to="/">'
+        <IconButton  aria-label="homepage" style={{ position: 'absolute', top: '-50px', left: '-450px',color:"black" }}>
+          
+          
+        <ExitToAppIcon style={{ transform: 'scaleX(-1)' }}/>
+     
+    </IconButton>
+    </Link>
+
           <div style={{ display: 'flex',justifyContent:"center"}}>
           <Avatar alt="In" src="./images/mod_login.png" sx={{ width: 60, height: 60  }} />
           </div>
@@ -68,11 +79,11 @@ const Moderator = () => {
       <br />
       <br />
       <div style={{textAlign:"left"}}>
-      <Button color='success' variant='contained'  style={{width:"100%"}} ><Link to ={'login_success'} style={{ color: "white", textDecoration: "none" }} >Login</Link></Button>
+      <Button color='success' variant='contained'  style={{width:"100%"}} ><Link to ={'/login_success'} style={{ color: "white", textDecoration: "none" }} >Login</Link></Button>
       <br />
       <Typography style={{fontSize:'small', display: "inline-block",marginLeft:"0px",marginTop:"-20px"}}>or</Typography>
       
-      <Button variant='text'><Link  to ={'signup'} style={{display: "inline-block"}}>Sign up</Link></Button>
+      <Button variant='text'><Link  to ={'/modnewuser'} style={{display: "inline-block"}} replace>Sign up</Link></Button>
       <br/>
       <Button variant='text' style={{display: "inline-block"}} >Forgot password</Button>
       </div>
@@ -81,7 +92,7 @@ const Moderator = () => {
 
      
 
-                    
+      </div>              
 </div>
 
             

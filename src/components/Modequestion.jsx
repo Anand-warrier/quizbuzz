@@ -121,7 +121,7 @@ const Modequestion = () => {
       <Typography variant="body2" sx={{ marginRight: 1}}>
         Sign Out
       </Typography>
-      <Link1 to={"/"}>
+      <Link1 to={"/modsignup"}>
       <IconButton sx={{ mt: 2,  marginTop:0}}  >
         <ExitToAppIcon />
       </IconButton>

@@ -24,14 +24,14 @@ const Homepage = () => {
       </div>
       <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center',background: 'linear-gradient(to left, #73c2c7, #2c3e54)' }}>
         <div >
-          <Button  variant="contained" style={{borderRadius:"20" ,backgroundColor:"darkmagenta",fontFamily:"cursive",width:"500px"}}><Link  to ={'modsignup'}  style={{ color: "white", textDecoration: "none" }}>Attend Quiz</Link></Button>
+          <Button  variant="contained" style={{borderRadius:"20" ,backgroundColor:"darkmagenta",fontFamily:"cursive",width:"500px"}}><Link  to ={'/modsignup'}  style={{ color: "white", textDecoration: "none" }}>Attend Quiz</Link></Button>
           <br />
           <br />
           <br />
           <Button  variant="contained" style={{borderRadius:"20" ,backgroundColor:"tomato",fontFamily:"cursive",width:"500px"}}><Link  to ={'modsignup'}  style={{ color: "white", textDecoration: "none" }}>Generate Quiz</Link></Button>
 
         </div>
-        <Link to="adminpage">'
+        <Link to="/adminpage">'
         <IconButton  aria-label="Admin" style={{ position: 'absolute', top: '590px', left: '1200px'  }}>
           
       <AdminPanelSettingsIcon />

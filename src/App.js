@@ -17,9 +17,10 @@ function App() {
       
 
         <Route path="/"  element={<Homepage/>}/> 
-         <Route path="modsignup" element={<Moderator />}/>
-         <Route path='adminpage' element={<Approval/>}/>
-         <Route path="login_success" element={<Modequestion/>}/>
+         <Route path="/modsignup" element={<Moderator />}/>
+         <Route path='/adminpage' element={<Approval/>}/>
+         <Route path="/login_success" element={<Modequestion/>}/>
+         <Route path="/modnewuser"  element={<Moderator_signup/>}/>
 
         
       </Routes>
