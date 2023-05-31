@@ -31,7 +31,7 @@ const Moderator = () => {
         top:"50%",
         transform: "translate(-50%, -50%)",}}>
           <div style={{ display: 'flex',justifyContent:"center"}}>
-          <Avatar alt="In" src="D:\Quiz\quiz\src\login_logo.png" sx={{ width: 60, height: 60  }} />
+          <Avatar alt="In" src="./images/mod_login.png" sx={{ width: 60, height: 60  }} />
           </div>
            <Typography style={{fontFamily:"-moz-initial",fontSize:"30px",}}>Login</Typography> 
         
@@ -68,7 +68,7 @@ const Moderator = () => {
       <br />
       <br />
       <div style={{textAlign:"left"}}>
-      <Button color='success' variant='contained'  style={{width:"100%"}} ><Link to ={'login_success'} >Login</Link></Button>
+      <Button color='success' variant='contained'  style={{width:"100%"}} ><Link to ={'login_success'} style={{ color: "white", textDecoration: "none" }} >Login</Link></Button>
       <br />
       <Typography style={{fontSize:'small', display: "inline-block",marginLeft:"0px",marginTop:"-20px"}}>or</Typography>
       

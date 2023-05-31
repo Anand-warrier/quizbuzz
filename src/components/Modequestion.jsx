@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { Link as Link1} from  'react-router-dom';
 import { Tabs, Tab, Typography, Backdrop, Autocomplete, TextField, Button,Table, TableHead, TableRow, TableCell,IconButton, Link } from '@mui/material';
 import { Box } from '@mui/system';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-// import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 
 
@@ -120,11 +121,11 @@ const Modequestion = () => {
       <Typography variant="body2" sx={{ marginRight: 1}}>
         Sign Out
       </Typography>
-      <Link to={"/hey"}>
+      <Link1 to={"/"}>
       <IconButton sx={{ mt: 2,  marginTop:0}}  >
         <ExitToAppIcon />
       </IconButton>
-      </Link>
+      </Link1>
     </Box>
   }
 />
