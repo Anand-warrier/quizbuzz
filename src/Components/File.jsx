@@ -10,7 +10,7 @@ const File = () => {
   const handleChange = (event) => {
     setDat(event.target.value);
   };
-
+  
   const deleteTag = (id) => {
     axios
       .delete("http://localhost:8000/tags/" + id)
@@ -90,7 +90,7 @@ const File = () => {
                           color="error">
                           DELETE
                         </Button></TableCell>
-              
+                        
     
                         </TableRow>
                     )

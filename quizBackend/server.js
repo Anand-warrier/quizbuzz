@@ -52,3 +52,4 @@ app.delete("/tags/:id", async (req, res) => {
       res.json("Failed deleting data");
     });
 });
+
