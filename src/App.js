@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Moderator_signup from './components/Moderator_signup';
 import Modequestion from './components/Modequestion';
 import Homepage from './components/Homepage';
-import Approval from './components/Approval';
+import File from './Components/File';
 
 function App() {
     
@@ -18,7 +18,7 @@ function App() {
 
         <Route path="/"  element={<Homepage/>}/> 
          <Route path="/modsignup" element={<Moderator />}/>
-         <Route path='/adminpage' element={<Approval/>}/>
+         <Route path='/adminpage' element={<File/>}/>
          <Route path="/login_success" element={<Modequestion/>}/>
          <Route path="/modnewuser"  element={<Moderator_signup/>}/>
 

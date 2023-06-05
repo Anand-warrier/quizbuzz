@@ -32,6 +32,13 @@ app.post('/tags',async (req, res) => {
   res.json('not saved');
 });
 
-  
+
+});
+
+app.get("/tags", async (req, res) => {
+  let data = await Details.find().catch((_) => {
+    res.json("Error finding data");
+  });
+  res.json(data);
 });
 

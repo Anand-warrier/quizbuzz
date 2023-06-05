@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
-import {TextField,Button,TableContainer, Table, TableHead, TableRow, TableCell,Typography }from '@mui/material';
-import { Box } from '@mui/system';
+import React, { useState ,useEffect} from 'react';
+import {TextField,Button,TableContainer, Table, TableHead,TableBody, TableRow, TableCell,Typography }from '@mui/material';
+
 import axios from 'axios'
 
 
 const File = () => {
-
-
-  
-  const [data, setData] = useState('');
+  var[datas,setData]=useState([])
+  const [data, setDat] = useState('');
   const handleChange = (event) => {
-    setData(event.target.value);
+    setDat(event.target.value);
   };
 
   const handleSubmit =  () => {
-   
+  
     // Send data to the API endpoint
     axios.post('http://localhost:8000/tags', { tag_name:data})
       .then((response) => {
@@ -27,7 +25,14 @@ const File = () => {
       
       
   };
+ 
 
+  useEffect(()=>{
+    axios.get('http://localhost:8000/tags').then((response)=>{
+    setData(datas=response.data)
+    console.log(response.data)
+})
+},[])
   
   return (
     <div>
@@ -35,9 +40,9 @@ const File = () => {
   
     
       
-        <div style={{paddingRight:'1000px',paddingTop:'100px'}}>
+        <div style={{paddingTop:'10px'}}>
         <Typography>
-              Generate your tags!
+             <h1>Generate your tags!</h1> 
             </Typography>
             <br />
             <TextField
@@ -50,19 +55,47 @@ const File = () => {
              Submit
             </Button>
         </div>
-         <div>
-         <h2>details</h2>    
+         <div style={{paddingTop:'10px'}}>
+    
       <TableContainer>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>tags/types</TableCell>
+              <TableCell><h1>List of tags</h1></TableCell>
             </TableRow>
           </TableHead>
+          <TableBody>{
+                datas.map((value,index)=>{
+                    return(
+                        <TableRow key={index}>
+                            <TableCell>{value.tag_name}</TableCell>
+                            
+              
+    
+                        </TableRow>
+                    )
+                })
+
+                }
+                </TableBody>
         </Table>
       </TableContainer>
          </div>
-
+         <div style={{paddingTop:'100px'}}>
+         <Typography>
+             <h1>Status</h1> 
+            </Typography>
+      <TableContainer>
+        <Table>
+            <TableHead>
+                <TableRow>
+                    <TableCell>Tag</TableCell>
+                    <TableCell>Status</TableCell>
+                </TableRow>
+            </TableHead>
+        </Table>
+      </TableContainer>
+    </div>
       
     </div>
     
