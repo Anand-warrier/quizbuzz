@@ -42,3 +42,13 @@ app.get("/tags", async (req, res) => {
   res.json(data);
 });
 
+app.delete("/tags/:id", async (req, res) => {
+  let id = req.params.id;
+  await Details.findByIdAndDelete(id)
+    .then(() => {
+      res.json("Data Removed suuccessfully");
+    })
+    .catch(() => {
+      res.json("Failed deleting data");
+    });
+});

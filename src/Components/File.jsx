@@ -11,6 +11,18 @@ const File = () => {
     setDat(event.target.value);
   };
 
+  const deleteTag = (id) => {
+    axios
+      .delete("http://localhost:8000/tags/" + id)
+      .then(() => {
+        alert("Deleted a row");
+        window.location.reload();
+      })
+      .catch(() => {
+        alert("Could not delete the row");
+      });
+  };
+
   const handleSubmit =  () => {
   
     // Send data to the API endpoint
@@ -62,6 +74,7 @@ const File = () => {
           <TableHead>
             <TableRow>
               <TableCell><h1>List of tags</h1></TableCell>
+              <TableCell><h1>Delete option</h1></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>{
@@ -69,7 +82,14 @@ const File = () => {
                     return(
                         <TableRow key={index}>
                             <TableCell>{value.tag_name}</TableCell>
-                            
+                            <TableCell><Button
+                          variant="contained"
+                          onClick={() => {
+                            deleteTag(value._id);
+                          }}
+                          color="error">
+                          DELETE
+                        </Button></TableCell>
               
     
                         </TableRow>
