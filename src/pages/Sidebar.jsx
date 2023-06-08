@@ -4,11 +4,12 @@ import { NavLink } from 'react-router-dom';
 import { AppBar } from '@mui/material';
 
 const Sidebar = ({children}) => {
+   
     const[isOpen ,setIsOpen] = useState(false);
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
-            path:"/",
+            path:"/dashboard",
             name:"Dashboard",
             icon:<Dashboard/>
         },
@@ -23,7 +24,7 @@ const Sidebar = ({children}) => {
             icon:<Quiz/>
         },
         {
-            path:"/signout",
+            path:"/user",
             name:"Signout",
             icon:<Lock/>
         }

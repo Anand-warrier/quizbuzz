@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Paper, Avatar, Typography, TextField, Button, RadioGroup,FormControl,FormLabel,Radio} from '@mui/material'
+import { Grid, Paper, Avatar, Typography, TextField, Button, RadioGroup,Link,FormControl,FormLabel,Radio} from '@mui/material'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
@@ -35,7 +35,7 @@ const Signup = () => {
                 control={<Checkbox name="checkedA" />}
                 label="I accept the terms and conditions."
             />
-            <Button type='submit' variant='contained' color='primary'>Sign up</Button>
+            <Button type='submit' variant='contained' color='primary'><Link href='/user'>Sign up</Link></Button>
         </form>
     </Paper>
 </Grid>

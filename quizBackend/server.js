@@ -32,6 +32,24 @@ app.post('/tags',async (req, res) => {
   res.json('not saved');
 });
 
-  
+
+});
+
+app.get("/tags", async (req, res) => {
+  let data = await Details.find().catch((_) => {
+    res.json("Error finding data");
+  });
+  res.json(data);
+});
+
+app.delete("/tags/:id", async (req, res) => {
+  let id = req.params.id;
+  await Details.findByIdAndDelete(id)
+    .then(() => {
+      res.json("Data Removed suuccessfully");
+    })
+    .catch(() => {
+      res.json("Failed deleting data");
+    });
 });
 
