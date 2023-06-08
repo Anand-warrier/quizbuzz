@@ -35,7 +35,7 @@ const Signup = () => {
                 control={<Checkbox name="checkedA" />}
                 label="I accept the terms and conditions."
             />
-            <Button type='submit' variant='contained' color='primary'><Link href='/user'>Sign up</Link></Button>
+            <Button type='submit' variant='contained' color='primary'><Link color='inherit' underline='none'href='/user'>Sign up</Link></Button>
         </form>
     </Paper>
 </Grid>

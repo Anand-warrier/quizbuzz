@@ -31,7 +31,7 @@ const Homepage = () => {
           <Button  variant="contained" style={{borderRadius:"20" ,backgroundColor:"tomato",fontFamily:"cursive",width:"500px"}}><Link  to ={'modsignup'}  style={{ color: "white", textDecoration: "none" }}>Generate Quiz</Link></Button>
 
         </div>
-        <Link to="/adminpage">'
+        <Link to="/adminlogin">'
         <IconButton  aria-label="Admin" style={{ position: 'absolute', top: '590px', left: '1200px'  }}>
           
       <AdminPanelSettingsIcon />

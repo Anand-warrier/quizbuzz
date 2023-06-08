@@ -12,6 +12,7 @@ import Quizpage from './pages/Quizpage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Sidebar from './pages/Sidebar';
+import Login11 from './Components/Login1';
 function App() {
     
   
@@ -34,6 +35,7 @@ function App() {
          <Route path="/user" element={<Login/>}/> 
          <Route path="/users" element={<Signup/>}/> 
          <Route path="/sidebar" element={<Sidebar/>}/> 
+         <Route path="/adminlogin" element={<Login11/>}/> 
       </Routes>
     </div>
   );

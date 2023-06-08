@@ -26,7 +26,7 @@ const Login=({handleChange})=>{
                     }
                     label="Remember me"
                  />
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth><Link href='/sidebar'>Sign in</Link></Button>
+                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth><Link href='/sidebar' underline='none'color='inherit'>Sign in</Link></Button>
                 <br></br><br></br>
                 <Typography >
                      <Link href="#" >
